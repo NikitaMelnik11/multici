@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Cartoon Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 900px;
+        }
+        .cartoon {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .cartoon img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .cartoon:hover {
+            transform: scale(1.05);
+        }
+        .animated {
+            animation: comeToLife 0.5s ease;
+        }
+        @keyframes comeToLife {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2024/03/26/10/30/created-by-ai-8656440_640.png" alt="Cartoon 1">
+        </div>
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2024/06/04/19/28/elephant-8809485_640.png" alt="Cartoon 2">
+        </div>
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2024/07/25/18/58/mermaid-8922078_640.png" alt="Cartoon 3">
+        </div>
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2024/05/29/19/49/pig-8797099_640.png" alt="Cartoon 4">
+        </div>
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2012/04/12/22/04/goldfish-30837_640.png" alt="Cartoon 5">
+        </div>
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2016/05/12/23/03/lamb-1388937_640.png" alt="Cartoon 6">
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.cartoon').forEach(cartoon => {
+            cartoon.addEventListener('mouseenter', () => {
+                cartoon.classList.add('animated');
+            });
+
+            cartoon.addEventListener('animationend', () => {
+                cartoon.classList.remove('animated');
+            });
+        });
+    </script>
+</body>
+</html>
